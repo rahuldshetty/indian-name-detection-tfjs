@@ -38,10 +38,14 @@ function App() {
   }
 
   function get_gender_icon(gender){
-    if(gender==0){
-      return <img src="/female.png"/>
+    let url = window.location.href;
+    if(!url.endsWith("/")){
+      url += "/"
     }
-    else if(gender==1) return <img src="/male.png"/>
+    if(gender==0){
+      return <img src={url + "female.png"}/>
+    }
+    else if(gender==1) return <img src={url + "male.png"}/>
   }
 
   useEffect(() => {
